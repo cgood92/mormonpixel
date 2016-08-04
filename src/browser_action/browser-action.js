@@ -18,19 +18,17 @@
 	function generatePixel() {
 		//Initialize values and set up initial style to make errors clean
 		random++;
-		var height = 0;
-		var width = 0;
 		var heightElem = document.getElementById("height");
 		var widthElem = document.getElementById("width");
 		var optionsElem = document.getElementById("options");
 		heightElem.style.border = 'none';
 		widthElem.style.border = 'none';
 		optionsElem.style.border = 'none';
-		document.getElementById("pixel").innerHTML = '';
+		pixelElem.innerHTML = '';
 
 		//Assign values from user input..................................
-		height = heightElem.value;
-		width = widthElem.value;
+		var height = heightElem.value;
+		var width = widthElem.value;
 		var option = optionsElem.value;
 
 		//Everything is good.............................................
