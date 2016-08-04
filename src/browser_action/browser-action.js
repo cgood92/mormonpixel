@@ -65,6 +65,7 @@
 		}
 
 		//Check for invalid data.........................................
+		document.getElementById("validationErrors").innerHTML = '';
 		if (isNaN(height)) {
 			showValidationError(heightElem, "Please enter a valid number for height");
 		}
@@ -78,7 +79,7 @@
 
 	// If the user inserts bad information, inform them
 	function showValidationError(elem, msg) {
-		pixelElem.innerHTML += '<p style="color: red"><i>' + msg + '</i></p>'
+		document.getElementById("validationErrors").innerHTML += '<p style="color: red"><i>' + msg + '</i></p>'
 		elem.classList.add('validationError');
 	}
 
