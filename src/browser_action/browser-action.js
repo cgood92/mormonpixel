@@ -3,13 +3,19 @@
 	var pixelElem;
 
 	$( document ).ready(function() {
+		// Load global element
 		pixelElem = document.getElementById("pixel");
+
+		// Add event listener to the "generate" button
 		document.getElementById('generate').addEventListener('click', function(){
 			generatePixel();
 		});
+
+		// Load a default image
 		loadImage(200, 200, "christ", random);
 	});
 
+	// Displays a "Link copied to clipboard" message
 	function copyMessageDisplay(){
 		$("#copied").show();
 		setTimeout(function() { $("#copied").fadeOut(); }, 1000);
@@ -45,18 +51,19 @@
 
 		//Check for invalid data.........................................
 		if (isNaN(height)) {
-			pixelElem.innerHTML += '<p style="color: red"><i>Please enter a valid number for height</i></p>'
-			heightElem.style.border = "3px solid red";
+			showValidationError(heightElem, "Please enter a valid number for height");
 		}
 		if (isNaN(width)) {
-			pixelElem.innerHTML += '<p style="color: red"><i>Please enter a valid number for width</i></p>'
-			widthElem.style.border = "3px solid red";
+			showValidationError(widthElem, "Please enter a valid number for width");
 		}
 		if (option.length < 1) {
-			pixelElem.innerHTML += '<p style="color: red"><i>Please select a category</i></p>'
-			optionsElem.style.border = "3px solid red";
+			showValidationError(optionsElem, "Please select a category");
 		}
-		
+	}
+
+	function showValidationError(elem, msg) {
+		pixelElem.innerHTML += '<p style="color: red"><i>' + msg + '</i></p>'
+		elem.style.border = "3px solid red";
 	}
 
 	function copyLink() {
