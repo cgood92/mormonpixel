@@ -12,13 +12,14 @@
 		// Load global element
 		pixelElem = document.getElementById("pixel");
 
+		// Load a default image
+		loadImage(200, 200, "christ", random);
+
 		// Add event listener to the "generate" button
 		document.getElementById('generate').addEventListener('click', function(){
 			generatePixel();
 		});
 
-		// Load a default image
-		loadImage(200, 200, "christ", random);
 	});
 
 	// Displays a "Link copied to clipboard" message
@@ -26,15 +27,15 @@
 		var copiedElem = document.getElementById("copied");
 		copiedElem.style.display = "inline-block";
 
-		setTimeout(function() { fadeOut(copiedElem, 100); }, 500);
+		var timeout = setTimeout(function() { fadeOut(copiedElem, 100); clearTimeout(timeout); }, 500);
 	}
 
 	function loadImage(width, height, option, random){
 		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
 		var link = displaylink + '?' + random;
-		pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '"> <br /> <input style="width:400px; border: none;" id="imgLink" value="' + displaylink + '">';
-		copyLink();
 		copyMessageDisplay();
+		pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '"> <br /> <input style="display: none" id="imgLink" value="' + displaylink + '" readonly><p>' + displaylink + '</p>';
+		copyLink();
 	}
 
 	function generatePixel() {
@@ -53,8 +54,8 @@
 		var option = optionsElem.value;
 
 		//Everything is good.............................................
-		if (height > 0 && width > 0 && option.length > 1) {
-			loadImage(width, height, option, random++);
+		if (option.length > 1) {
+			loadImage(width || 200, height || 200, option, random++);
 		}
 
 		//Check for invalid data.........................................
