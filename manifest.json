@@ -10,10 +10,6 @@
     "128": "/icons/LDSPixel.png"
   },
   "default_locale": "en",
-  "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
-  },
   "browser_action": {
     "default_icon": "/icons/LDSPixel.png",
     "default_title": "Mormon Pixel",
