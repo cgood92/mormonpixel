@@ -40,6 +40,7 @@
     #linkText {
         font-size: 0.65em;
         font-family: 'Montserrat', sans-serif;
+        padding-bottom: 5px;
     }
 
     button, input, select, textarea {
