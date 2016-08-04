@@ -35,15 +35,12 @@
 
 	// Replace the image div container with a new img
 	function loadImage(width, height, option, random){
-		// Load the new image
-		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option,
-			link = displaylink + '?' + random;
-		pixelElem.innerHTML = '<center><img src="' + link + '" width="' + width + '" height="' + height + '"></center> <br /> <input style="border: none; width: 400px; background: transparent;" id="imgLink" value="' + displaylink + '" readonly>';
-
-		// Show user that the text has been copied
-		copyMessageDisplay();
-		copyLink();
-	}
+        var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
+        var link = displaylink + '?' + random;
+        copyMessageDisplay();
+        pixelElem.innerHTML = '<center><img style="-webkit-filter: drop-shadow(5px 5px 5px #222);" src="' + link + '" width="' + width + '" height="' + height + '"></center> <br /> <input style="border: none; width: 400px; background: transparent;" id="imgLink" value="' + displaylink + '" readonly>';
+        copyLink();
+    }
 
 	// Gather the information for the desired picture, and fetch it
 	function generatePixel() {
