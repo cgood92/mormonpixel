@@ -36,7 +36,7 @@
 		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
 		var link = displaylink + '?' + random;
 		copyMessageDisplay();
-		pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '"> <br /> <input style="display: none" id="imgLink" value="' + displaylink + '" readonly><p>' + displaylink + '</p>';
+		pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '"> <br /> <input style="display: none" id="imgLink" value="' + displaylink + '" readonly><p id="linkText">' + displaylink + '</p>';
 		copyLink();
 	}
 
