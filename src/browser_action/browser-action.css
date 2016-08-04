@@ -11,6 +11,14 @@ body {
     font-family: Helvetica, Ubuntu, Arial, sans-serif;
 }
 
+#width {
+    background: url("width-icon.png") no-repeat right center;
+}
+
+#height {
+    background: url("height-icon.png") no-repeat right center;
+}
+
 #height, #width {
     height: 20px; 
     width: 80px;

@@ -7,12 +7,16 @@
 		pixelElem = document.getElementById("pixel");
 
 		// Load a default image
-		loadImage(200, 200, "christ", random);
+		loadImage(200, 200, "apostles", random);
 
 		// Add event listener to the "generate" button
 		document.getElementById('generate').addEventListener('click', function(){
 			generatePixel();
 			this.blur();
+		});
+		document.getElementById('inputControls').addEventListener('submit', function(e){
+			e.preventDefault(); 
+			return false;
 		});
 
 	});
