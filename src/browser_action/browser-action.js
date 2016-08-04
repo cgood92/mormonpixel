@@ -18,6 +18,7 @@
 		// Add event listener to the "generate" button
 		document.getElementById('generate').addEventListener('click', function(){
 			generatePixel();
+			this.blur();
 		});
 
 	});
