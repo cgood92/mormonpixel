@@ -51,24 +51,21 @@ function generatePixel() {
 }
 
 function copyLink() {
+	var highlight = document.getElementById('imgLink'),
+		range = document.createRange();
 
-	var highlight = document.getElementById('imgLink');
-	var result = highlight.select();
-
-	console.log(result);
+	// Get a selection range
+	range.selectNode(highlight);
+	window.getSelection().addRange(range);
 
 	try {  
-	// Now that we've selected the anchor text, execute the copy command  
-	var successful = document.execCommand('copy');  
-	var msg = successful ? 'successful' : 'unsuccessful';  
-	console.log('Copy email command was ' + msg);  
+		// Now that we've selected the anchor text, execute the copy command  
+		document.execCommand('copy');  
 	} 
 	catch(err) {  
-		console.log('Oops, unable to copy');  
 	}  
 
-	// Remove the selections - NOTE: Should use
-	// removeRange(range) when it is supported  
+	// Remove the selections - NOTE: Should use removeRange(range) when it is supported  
 	window.getSelection().removeAllRanges();  
 }
 
