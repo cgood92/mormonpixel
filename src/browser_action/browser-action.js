@@ -2,9 +2,7 @@
 	var random = 1;
 	var pixelElem;
 
-	function fadeOut(elem, speed) {
-	    var s = elem.style;
-	    s.opacity = 1;
+	function fadeOut(s, speed) {
 	    (function fade(){(s.opacity-=.1)<.1?s.display="none":setTimeout(fade,speed)})();
 	}
 
@@ -28,7 +26,10 @@
 		var copiedElem = document.getElementById("copied");
 		copiedElem.style.display = "inline-block";
 
-		var timeout = setTimeout(function() { fadeOut(copiedElem, 100); clearTimeout(timeout); }, 500);
+		copiedElem.style.opacity = 1;
+		var timeout = setTimeout(function() { 
+			fadeOut(copiedElem.style, 100);
+		}, 500);
 	}
 
 	function loadImage(width, height, option, random){
