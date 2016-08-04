@@ -51,10 +51,11 @@
 		var heightElem = document.getElementById("height"),
 			widthElem = document.getElementById("width"),
 			optionsElem = document.getElementById("options");
-		heightElem.style.border = 'none';
-		widthElem.style.border = 'none';
-		optionsElem.style.border = 'none';
-		pixelElem.innerHTML = '';
+
+		// Remove the border
+		heightElem.classList.add('borderless');
+		widthElem.classList.add('borderless');
+		optionsElem.classList.add('borderless');
 
 		//Assign values from user input..................................
 		var height = heightElem.value;
@@ -81,7 +82,7 @@
 	// If the user inserts bad information, inform them
 	function showValidationError(elem, msg) {
 		pixelElem.innerHTML += '<p style="color: red"><i>' + msg + '</i></p>'
-		elem.style.border = "3px solid red";
+		elem.classList.add('validationError');
 	}
 
 	// Copy link to the clipboard

@@ -77,3 +77,11 @@ h3 {
     margin-left: 10px;
     color: #333;
 }
+
+.borderless {
+	border: none;
+}
+
+#inputControls .validationError {
+	border: 3px solid red;
+}
