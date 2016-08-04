@@ -1,7 +1,7 @@
 // SAMPLE
 this.manifest = {
     "name": "My Extension",
-    "icon": "icon.png",
+    "icon": "iconLP.png",
     "settings": [
         {
             "tab": i18n.get("information"),
