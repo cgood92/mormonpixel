@@ -93,10 +93,18 @@ h3 {
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
 	max-width: 400px;
 	max-height: 400px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1rem;
 }
 
 #imgLink {
 	border: none; 
 	width: 400px; 
 	background: transparent;
+}
+
+#validationErrors {
+    color: red;
+    font-style: italic;
 }

@@ -38,7 +38,7 @@
         var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
         var link = displaylink + '?' + random;
         copyMessageDisplay();
-        pixelElem.innerHTML = '<center><img src="' + link + '" width="' + width + '" height="' + height + '" class="generatedImage"></center> <br /> <input id="imgLink" value="' + displaylink + '" readonly>';
+        pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '" class="generatedImage"><input id="imgLink" value="' + displaylink + '" readonly>';
         copyLink();
     }
 
@@ -79,7 +79,7 @@
 
 	// If the user inserts bad information, inform them
 	function showValidationError(elem, msg) {
-		document.getElementById("validationErrors").innerHTML += '<p style="color: red"><i>' + msg + '</i></p>'
+		document.getElementById("validationErrors").innerHTML += '<p>' + msg + '</p>'
 		elem.classList.add('validationError');
 	}
 
