@@ -1,11 +1,7 @@
 (function(){
-	var random = 1;
-	var pixelElem;
+	var random = 1, pixelElem;
 
-	function fadeOut(s, speed) {
-	    (function fade(){(s.opacity-=.1)<.1?s.display="none":setTimeout(fade,speed)})();
-	}
-
+	// On document load - load a default image, and add event listeners
 	document.addEventListener("DOMContentLoaded", function() {
 		// Load global element
 		pixelElem = document.getElementById("pixel");
@@ -21,6 +17,11 @@
 
 	});
 
+	// Vanilla JS version of jQuery's 'fadeout'
+	function fadeOut(s, speed) {
+	    (function fade(){(s.opacity-=.1)<.1?s.display="none":setTimeout(fade,speed)})();
+	}
+
 	// Displays a "Link copied to clipboard" message
 	function copyMessageDisplay(){
 		var copiedElem = document.getElementById("copied");
@@ -32,19 +33,24 @@
 		}, 500);
 	}
 
+	// Replace the image div container with a new img
 	function loadImage(width, height, option, random){
-		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
-		var link = displaylink + '?' + random;
-		copyMessageDisplay();
+		// Load the new image
+		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option,
+			link = displaylink + '?' + random;
 		pixelElem.innerHTML = '<center><img src="' + link + '" width="' + width + '" height="' + height + '"></center> <br /> <input style="border: none; width: 400px; background: transparent;" id="imgLink" value="' + displaylink + '" readonly>';
+
+		// Show user that the text has been copied
+		copyMessageDisplay();
 		copyLink();
 	}
 
+	// Gather the information for the desired picture, and fetch it
 	function generatePixel() {
 		//Initialize values and set up initial style to make errors clean
-		var heightElem = document.getElementById("height");
-		var widthElem = document.getElementById("width");
-		var optionsElem = document.getElementById("options");
+		var heightElem = document.getElementById("height"),
+			widthElem = document.getElementById("width"),
+			optionsElem = document.getElementById("options");
 		heightElem.style.border = 'none';
 		widthElem.style.border = 'none';
 		optionsElem.style.border = 'none';
@@ -72,11 +78,13 @@
 		}
 	}
 
+	// If the user inserts bad information, inform them
 	function showValidationError(elem, msg) {
 		pixelElem.innerHTML += '<p style="color: red"><i>' + msg + '</i></p>'
 		elem.style.border = "3px solid red";
 	}
 
+	// Copy link to the clipboard
 	function copyLink() {
 		var highlight = document.getElementById('imgLink'),
 			range = document.createRange();
