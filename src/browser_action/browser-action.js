@@ -56,14 +56,14 @@
 			optionsElem = document.getElementById("options");
 
 		// Remove the border
-		heightElem.classList.add('borderless');
-		widthElem.classList.add('borderless');
-		optionsElem.classList.add('borderless');
+		heightElem.classList.remove('validationError');
+		widthElem.classList.remove('validationError');
+		optionsElem.classList.remove('validationError');
 
 		//Assign values from user input..................................
-		var height = heightElem.value;
-		var width = widthElem.value;
-		var option = optionsElem.value;
+		var height = heightElem.value,
+			width = widthElem.value,
+			option = optionsElem.value;
 
 		//Check for invalid data.........................................
 		document.getElementById("validationErrors").innerHTML = '';
