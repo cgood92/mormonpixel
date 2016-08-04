@@ -1,6 +1,5 @@
 (function(){
 	var random = 1;
-	var displaylink;
 	var pixelElem;
 
 	$( document ).ready(function() {
@@ -8,10 +7,7 @@
 		document.getElementById('generate').addEventListener('click', function(){
 			generatePixel();
 		});
-	    pixelElem.innerHTML = '<img src="https://design.ldschurch.org/csp/placeholder/200/200/christ">';
-	    pixelElem.innerHTML += '<br /><input style="width:400px; border: none;" id="imgLink" value="https://design.ldschurch.org/csp/placeholder/200/200/christ">';
-	    copyLink();
-	    copyMessageDisplay();
+		loadImage(200, 200, "christ", random);
 	});
 
 	function copyMessageDisplay(){
@@ -19,9 +15,16 @@
 		setTimeout(function() { $("#copied").fadeOut(); }, 1000);
 	}
 
+	function loadImage(width, height, option, random){
+		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
+		var link = displaylink + '?' + random;
+		pixelElem.innerHTML = '<img src="' + link + '"> <br /> <input style="width:400px; border: none;" id="imgLink" value="' + displaylink + '">';
+		copyLink();
+		copyMessageDisplay();
+	}
+
 	function generatePixel() {
 		//Initialize values and set up initial style to make errors clean
-		random++;
 		var heightElem = document.getElementById("height");
 		var widthElem = document.getElementById("width");
 		var optionsElem = document.getElementById("options");
@@ -37,11 +40,7 @@
 
 		//Everything is good.............................................
 		if (height > 0 && width > 0 && option.length > 1) {
-			displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
-			var link = displaylink + '?' + random;
-			pixelElem.innerHTML = '<img src="' + link + '"> <br /> <input style="width:400px; border: none;" id="imgLink" value="' + displaylink + '">';
-			copyLink();
-			copyMessageDisplay();
+			loadImage(width, height, option, random++);
 		}
 
 		//Check for invalid data.........................................
