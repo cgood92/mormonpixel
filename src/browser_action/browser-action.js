@@ -30,7 +30,7 @@
 		copiedElem.style.opacity = 1;
 		var timeout = setTimeout(function() { 
 			fadeOut(copiedElem.style, 100);
-		}, 500);
+		}, 800);
 	}
 
 	// Replace the image div container with a new img
