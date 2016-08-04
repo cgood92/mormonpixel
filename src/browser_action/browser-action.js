@@ -48,6 +48,8 @@
 
 	// Gather the information for the desired picture, and fetch it
 	function generatePixel() {
+		var submit = true;
+
 		//Initialize values and set up initial style to make errors clean
 		var heightElem = document.getElementById("height"),
 			widthElem = document.getElementById("width"),
@@ -63,21 +65,24 @@
 		var width = widthElem.value;
 		var option = optionsElem.value;
 
-		//Everything is good.............................................
-		if (option.length > 1) {
-			loadImage(width || 200, height || 200, option, random++);
-		}
-
 		//Check for invalid data.........................................
 		document.getElementById("validationErrors").innerHTML = '';
 		if (isNaN(height)) {
 			showValidationError(heightElem, "Please enter a valid number for height");
+			submit = false;
 		}
 		if (isNaN(width)) {
 			showValidationError(widthElem, "Please enter a valid number for width");
+			submit = false;
 		}
 		if (option.length < 1) {
 			showValidationError(optionsElem, "Please select a category");
+			submit = false;
+		}
+
+		//Everything is good.............................................
+		if (submit) {
+			loadImage(width || 200, height || 200, option, random++);
 		}
 	}
 
