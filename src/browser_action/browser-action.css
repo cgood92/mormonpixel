@@ -71,6 +71,9 @@ h3 {
     border-color: #dcdcdc;
     padding-left: 10px;
     padding-top: 1px;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 #copiedMsg {
     font-size: 15px;
