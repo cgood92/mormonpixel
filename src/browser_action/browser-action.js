@@ -2,7 +2,13 @@
 	var random = 1;
 	var pixelElem;
 
-	$( document ).ready(function() {
+	function fadeOut(elem, speed) {
+	    var s = elem.style;
+	    s.opacity = 1;
+	    (function fade(){(s.opacity-=.1)<.1?s.display="none":setTimeout(fade,speed)})();
+	}
+
+	document.addEventListener("DOMContentLoaded", function() {
 		// Load global element
 		pixelElem = document.getElementById("pixel");
 
@@ -17,8 +23,10 @@
 
 	// Displays a "Link copied to clipboard" message
 	function copyMessageDisplay(){
-		$("#copied").show();
-		setTimeout(function() { $("#copied").fadeOut(); }, 1000);
+		var copiedElem = document.getElementById("copied");
+		copiedElem.style.display = "inline-block";
+
+		setTimeout(function() { fadeOut(copiedElem, 100); }, 500);
 	}
 
 	function loadImage(width, height, option, random){
