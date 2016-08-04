@@ -38,7 +38,7 @@
         var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
         var link = displaylink + '?' + random;
         copyMessageDisplay();
-        pixelElem.innerHTML = '<center><img style="-webkit-filter: drop-shadow(5px 5px 5px #222);" src="' + link + '" width="' + width + '" height="' + height + '"></center> <br /> <input style="border: none; width: 400px; background: transparent;" id="imgLink" value="' + displaylink + '" readonly>';
+        pixelElem.innerHTML = '<center><img src="' + link + '" width="' + width + '" height="' + height + '" class="generatedImage"></center> <br /> <input style="border: none; width: 400px; background: transparent;" id="imgLink" value="' + displaylink + '" readonly>';
         copyLink();
     }
 

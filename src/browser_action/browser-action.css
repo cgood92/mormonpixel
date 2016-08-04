@@ -88,3 +88,9 @@ h3 {
 #inputControls .validationError {
 	border: 3px solid red;
 }
+
+.generatedImage {
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+	max-width: 400px;
+	max-height: 400px;
+}
