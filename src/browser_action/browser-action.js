@@ -32,7 +32,7 @@
 	function loadImage(width, height, option, random){
 		var displaylink = "https://design.ldschurch.org/csp/placeholder/" + width + "/" + height + "/" + option;
 		var link = displaylink + '?' + random;
-		pixelElem.innerHTML = '<img src="' + link + '"> <br /> <input style="width:400px; border: none;" id="imgLink" value="' + displaylink + '">';
+		pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '"> <br /> <input style="width:400px; border: none;" id="imgLink" value="' + displaylink + '">';
 		copyLink();
 		copyMessageDisplay();
 	}
