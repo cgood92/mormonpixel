@@ -5,9 +5,9 @@
   "description": "This extension is deisgned to easily generate a placeholder image for LDS developers",
   "homepage_url": "http://www.rbdcenter.org/",
   "icons": {
-    "16": "/icons/salt-lake-temple.svg",
-    "48": "/icons/salt-lake-temple.svg",
-    "128": "/icons/salt-lake-temple.svg"
+    "16": "/icons/LDSPixel.png",
+    "48": "/icons/LDSPixel.png",
+    "128": "/icons/LDSPixel.png"
   },
   "default_locale": "en",
   "background": {
