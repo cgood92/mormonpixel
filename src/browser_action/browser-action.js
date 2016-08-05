@@ -7,7 +7,7 @@
 		pixelElem = document.getElementById("pixel");
 
 		// Load a default image
-		loadImage(200, 200, "apostles", random);
+		loadImage(300, 300, "apostles", random);
 
 		// Add event listener to the "generate" button
 		document.getElementById('generate').addEventListener('click', function(){
@@ -82,7 +82,7 @@
 
 		//Everything is good.............................................
 		if (submit) {
-			loadImage(width || 200, height || 200, option, random++);
+			loadImage(width || 300, height || 300, option, random++);
 		}
 	}
 
