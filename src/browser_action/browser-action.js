@@ -1,5 +1,5 @@
 (function(){
-	var random = 1, pixelElem;
+	var random = 1, pixelElem, winSelection = window.getSelection();
 
 	// On document load - load a default image, and add event listeners
 	document.addEventListener("DOMContentLoaded", function() {
@@ -18,8 +18,14 @@
 			e.preventDefault(); 
 			return false;
 		});
-
 	});
+
+	// Add selecting link event listener
+	function listenForLinkClick() {
+		document.getElementById('imgLink').addEventListener('click', function(e){
+			selectLink();
+		});
+	}
 
 	// Vanilla JS version of jQuery's 'fadeout'
 	function fadeOut(s, speed) {
@@ -43,7 +49,10 @@
         var link = displaylink + '?' + random;
         copyMessageDisplay();
         pixelElem.innerHTML = '<img src="' + link + '" width="' + width + '" height="' + height + '" class="generatedImage"><input id="imgLink" value="' + displaylink + '" readonly>';
+        selectLink();
         copyLink();
+        unselectLink();
+        listenForLinkClick();
     }
 
 	// Gather the information for the desired picture, and fetch it
@@ -82,7 +91,7 @@
 
 		//Everything is good.............................................
 		if (submit) {
-			loadImage(width || 300, height || 300, option, random++);
+			loadImage(width || 300, height || 300, option, ++random);
 		}
 	}
 
@@ -94,21 +103,28 @@
 
 	// Copy link to the clipboard
 	function copyLink() {
-		var highlight = document.getElementById('imgLink'),
-			range = document.createRange();
-
-		// Get a selection range
-		range.selectNode(highlight);
-		window.getSelection().addRange(range);
-
 		try {  
 			// Now that we've selected the anchor text, execute the copy command  
 			document.execCommand('copy');  
 		} 
 		catch(err) {  
 		}  
+	}
 
-		// Remove the selections - NOTE: Should use removeRange(range) when it is supported  
-		window.getSelection().removeAllRanges();  
+	// Select link
+	function selectLink() {
+		unselectLink();
+		var highlight = document.getElementById('imgLink'),
+			range = document.createRange();
+
+		// Get a selection range
+		range.selectNode(highlight);
+		winSelection.addRange(range);
+	}
+
+	// Unselect link
+	function unselectLink() {
+		// Remove the selections
+		winSelection.removeAllRanges();  
 	}
 })();
