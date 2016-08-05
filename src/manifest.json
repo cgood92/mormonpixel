@@ -14,7 +14,9 @@
     "default_title": "Mormon Pixel",
     "default_popup": "browser-action/browser-action.html"
   },
+  "short_name": "Mormon Pixel",
   "permissions": [
     "clipboardWrite"
-  ]
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
