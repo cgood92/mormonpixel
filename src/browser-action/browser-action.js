@@ -3,6 +3,11 @@
 		winSelection = window.getSelection(),
 		random = 1;
 
+	// Google Analytics Tracking
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-82042498-1']);
+	_gaq.push(['_trackPageview']);
+
 	//Initialize global elements
 	function loadGlobalElements(){
 		pixelElem = document.getElementById('pixel');
@@ -131,8 +136,18 @@
 		}
 	}
 
+	function setupTracking() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = 'https://ssl.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	}
+
 	// On document load - load a default image, and add event listeners
 	document.addEventListener('DOMContentLoaded', function() {
+		// Setup Google Analytics tracking
+		setupTracking();
+
 		// Load global elements
 		loadGlobalElements();
 
