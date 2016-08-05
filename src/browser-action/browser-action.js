@@ -91,19 +91,8 @@
 		elem.classList.add('validationError');
 	}
 
-	// Gather the information for the desired picture, and fetch it
-	function generatePixel() {
+	function inputErrorCheck (height, width, option) {
 		var submit = true;
-
-		// Remove the border
-		heightElem.classList.remove('validationError');
-		widthElem.classList.remove('validationError');
-		optionsElem.classList.remove('validationError');
-
-		//Assign values from user input..................................
-		var height = heightElem.value,
-			width = widthElem.value,
-			option = optionsElem.value;
 
 		//Check for invalid data.........................................
 		document.getElementById('validationErrors').innerHTML = '';
@@ -120,8 +109,24 @@
 			submit = false;
 		}
 
-		//Everything is good.............................................
-		if (submit) {
+		return submit;
+	}
+
+	// Gather the information for the desired picture, and fetch it
+	function generatePixel() {
+
+		// Remove the border
+		heightElem.classList.remove('validationError');
+		widthElem.classList.remove('validationError');
+		optionsElem.classList.remove('validationError');
+
+		//Assign values from user input..................................
+		var height = heightElem.value,
+			width = widthElem.value,
+			option = optionsElem.value;
+
+		//Check for valid input..........................................
+		if (inputErrorCheck (height, width, option)) {
 			loadImage(width || 300, height || 300, option, ++random);
 		}
 	}
