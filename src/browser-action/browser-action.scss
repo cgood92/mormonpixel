@@ -82,10 +82,9 @@ button, input, select, textarea {
 
 #inputControls {
     margin-bottom: 1rem;
-}
-
-#inputControls .validationError {
-	border: 3px solid red;
+    .validationError {
+        border: 3px solid red;
+    }
 }
 
 .generatedImage {
