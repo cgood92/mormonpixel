@@ -60,14 +60,6 @@ button, input, select, textarea {
     font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-    font-size: 2em;
-}
-
-h3 {
-    padding-top: 6px;
-}
-
 #copied {
     display: none;
     width: 190px;
@@ -86,6 +78,10 @@ h3 {
     font-size: 15px;
     margin-left: 10px;
     color: #333;
+}
+
+#inputControls {
+    margin-bottom: 1rem;
 }
 
 #inputControls .validationError {
