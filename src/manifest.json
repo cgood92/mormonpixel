@@ -12,7 +12,7 @@
   "browser_action": {
     "default_icon": "/icons/icon128.png",
     "default_title": "Mormon Pixel",
-    "default_popup": "browser_action/browser_action.html"
+    "default_popup": "browser-action/browser-action.html"
   },
   "permissions": [
     "clipboardWrite"
