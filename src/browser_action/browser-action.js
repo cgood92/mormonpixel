@@ -1,13 +1,18 @@
 (function(){
-	var random = 1, pixelElem, winSelection = window.getSelection();
+	var pixelElem, heightElem, widthElem, optionsElem, 
+		winSelection = window.getSelection(),
+		random = 1;
 
 	// On document load - load a default image, and add event listeners
 	document.addEventListener("DOMContentLoaded", function() {
-		// Load global element
-		pixelElem = document.getElementById("pixel");
+		// Load global elements
+		loadGlobalElements();
+
+		// Select a random category
+		selectRandomCategory();
 
 		// Load a default image
-		loadImage(300, 300, "apostles", random);
+		generatePixel();
 
 		// Add event listener to the "generate" button
 		document.getElementById('generate').addEventListener('click', function(){
@@ -19,6 +24,20 @@
 			return false;
 		});
 	});
+
+	//Initialize global elements
+	function loadGlobalElements(){
+		pixelElem = document.getElementById("pixel");
+		heightElem = document.getElementById("height");
+		widthElem = document.getElementById("width");
+		optionsElem = document.getElementById("options");
+	}
+
+	// Randomly select a random category 
+	function selectRandomCategory() {
+		var random = Math.floor(optionsElem.options.length * (Math.random() % 1));
+		optionsElem.options[random].selected = "selected";
+	}
 
 	// Add selecting link event listener
 	function listenForLinkClick() {
@@ -58,11 +77,6 @@
 	// Gather the information for the desired picture, and fetch it
 	function generatePixel() {
 		var submit = true;
-
-		//Initialize values and set up initial style to make errors clean
-		var heightElem = document.getElementById("height"),
-			widthElem = document.getElementById("width"),
-			optionsElem = document.getElementById("options");
 
 		// Remove the border
 		heightElem.classList.remove('validationError');
