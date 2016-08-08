@@ -6,6 +6,7 @@ body {
   font-size: 1.1em;
   font-family: $font-primary;
 }
+
 #mainPopup {
     padding-right: 10px;
     margin-top: -20px;
@@ -30,15 +31,16 @@ body {
     height: 20px; 
     width: 80px;
     border: none;
-    border-bottom: 1px solid;
-    border-bottom-color: #A1A1A1;
+    border-bottom: 1px solid #A1A1A1;
     margin: auto 5px;
 }
+
 #generate {
     height: 27px; 
     width: 80px;
     border-radius: 5px;
 }
+
 #options { 
     margin: auto 5px;
 }
@@ -58,13 +60,13 @@ button, input, select, textarea, placeholder {
     height: 40px;
     margin: 0 auto;
     background-color: #ffffe0;
-    border: 1px dashed;
-    border-color: #dcdcdc;
+    border: 1px dashed #dcdcdc;
     padding: 1px 0 0 10px;
     position: fixed;
     top: 0;
     right: 0;
 }
+
 #copiedMsg {
     font-size: 13px;
     margin-left: 10px;
