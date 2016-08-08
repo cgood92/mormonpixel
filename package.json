@@ -1,6 +1,6 @@
 {
   "name": "mormonpixel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This extension is deisgned to easily generate a placeholder image for LDS developers",
   "main": "index.js",
   "scripts": {
