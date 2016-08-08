@@ -12,12 +12,18 @@ body {
     width: $max-width;
 }
 
+.inputImgBg {
+    background: no-repeat right center;
+}
+
 #width {
-    background: url("width-icon.png") no-repeat right center;
+    @extend .inputImgBg;
+    background-image: url("width-icon.png");
 }
 
 #height {
-    background: url("height-icon.png") no-repeat right center;
+    @extend .inputImgBg;
+    background-image: url("height-icon.png");
 }
 
 #height, #width {
